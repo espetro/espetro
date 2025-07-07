@@ -17,10 +17,10 @@ Here are some ideas to get you started:
 
 My open-source interests are
 
-* 🤖 Machine Learning 
-* ✅ Functional programming
-* 🔁 Developer efficiency
+* 🤖 Applied AI/ML and LLM engines
+* 🔁 Developer experience
 * 🔩 Numerical Optimization
+* 🛜 Local-first cross-platform applications
 * 💻 Computer Science in general!
 
 <br><br>
@@ -30,7 +30,6 @@ My open-source interests are
 <hr>
 
 <p align="center">
-<a href="https://www.linkedin.com/in/quinoterrasa/"><img width="30px" src="https://simpleicons.org/icons/linkedin.svg" alt="LinkedIn"><a><span>&nbsp;</span><span>&nbsp;</span>
+<a href="https://www.linkedin.com/in/quinoterrasa/"><img width="30px" src="https://www.svgrepo.com/show/448234/linkedin.svg" alt="LinkedIn"><a><span>&nbsp;</span><span>&nbsp;</span>
 <a href="https://github.com/espetro"><img width="30px" src="https://simpleicons.org/icons/github.svg" alt="GitHub"><a><span>&nbsp;</span><span>&nbsp;</span>
-<a href="https://www.codewars.com/users/fant0me"><img width="30px" src="https://simpleicons.org/icons/codewars.svg" alt="Codewars"><a><span>&nbsp;</span><span>&nbsp;</span>
 </p>
