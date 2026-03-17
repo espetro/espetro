@@ -22,7 +22,7 @@ My open-source interests are
 * 🤖 Applied AI/ML and LLM engines
 * 📦 UX & Product
 * 🛜 Local-first, resilient, cross-platform applications
-* * 🔁 Developer experience
+* 🔁 Developer experience
 
 
 <hr>
