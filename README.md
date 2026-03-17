@@ -1,5 +1,7 @@
 ### Hi there, I'm Quino 👋
 
+You can pronounce it as /Kino/
+
 <!--
 **espetro/espetro** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
@@ -18,14 +20,10 @@ Here are some ideas to get you started:
 My open-source interests are
 
 * 🤖 Applied AI/ML and LLM engines
-* 🔁 Developer experience
-* 🔩 Numerical Optimization
-* 🛜 Local-first cross-platform applications
-* 💻 Computer Science in general!
+* 📦 UX & Product
+* 🛜 Local-first, resilient, cross-platform applications
+* * 🔁 Developer experience
 
-<br><br>
-
-<p align="center"><img src="https://github-readme-stats.vercel.app/api?username=espetro&show_icons=true"></p>
 
 <hr>
 
