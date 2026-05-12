@@ -24,7 +24,7 @@ My open-source interests are
 * 🛜 Local-first, resilient, cross-platform applications
 * 🔁 Developer experience
 
-Building cool stuff at [http://calohco.github.io/](https://calohco.github.io/).
+Find me at [illo.fyi](https://illo.fyi/).
 <hr>
 
 <p align="center">
