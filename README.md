@@ -1,33 +1,62 @@
-### Hi there, I'm Quino 👋
+<div align="center">
 
-You can pronounce it as /Kino/
+### Hi, I'm Quino 👋
+*pronounced /Kino/*
 
-<!--
-**espetro/espetro** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**Product engineer · AI-first apps · Open-source maintainer · Writing in public**
 
-Here are some ideas to get you started:
+<a href="https://x.com/josocjoq"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X"/></a>
+<a href="https://www.linkedin.com/in/quinoterrasa/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+<a href="https://illo.fyi"><img src="https://img.shields.io/badge/illo.fyi-111111?style=for-the-badge&logo=google-chrome&logoColor=white" alt="illo.fyi"/></a>
+<a href="https://github.com/sponsors/espetro"><img src="https://img.shields.io/badge/Sponsor-ea4aaa?style=for-the-badge&logo=github-sponsors&logoColor=white" alt="Sponsor"/></a>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+</div>
 
-My open-source interests are
+---
 
-* 🤖 Applied AI/ML and LLM engines
-* 📦 UX & Product
-* 🛜 Local-first, resilient, cross-platform applications
-* 🔁 Developer experience
+## What I'm up to
 
-Find me at [illo.fyi](https://illo.fyi/).
-<hr>
+- 🛠 **Core maintainer at [@sigilco](https://github.com/sigilco)** — shipping OSS tooling, currently [`intl-ai`](https://github.com/sigilco/intl-ai) (AI-powered i18n for any bundler)
+- 🧪 **Building AI-first apps at [@calohco](https://github.com/calohco)** — see what we're shipping at [illo.fyi/projects](https://illo.fyi/projects)
+- ✍️ **Writing** about AI, OSS, and building in public at [illo.fyi/blog](https://illo.fyi/blog)
+- 💬 **Talking life, work, and side projects** on [X](https://x.com/josocjoq) and [LinkedIn](https://www.linkedin.com/in/quinoterrasa/)
 
-<p align="center">
-<a href="https://www.linkedin.com/in/quinoterrasa/"><img width="30px" src="https://www.svgrepo.com/show/448234/linkedin.svg" alt="LinkedIn"><a><span>&nbsp;</span><span>&nbsp;</span>
-<a href="https://github.com/espetro"><img width="30px" src="https://simpleicons.org/icons/github.svg" alt="GitHub"><a><span>&nbsp;</span><span>&nbsp;</span>
-</p>
+## Open source
+
+I build and maintain things around:
+- 🤖 Applied AI / LLM tooling
+- 📦 UX & product
+- 🛜 Local-first, cross-platform apps
+- 🔁 Developer experience
+
+A few things you might want to poke at:
+- [`sigilco/agentplugins`](https://github.com/sigilco/agentplugins)
+- [`sigilco/intl-ai`](https://github.com/sigilco/intl-ai) — AI-powered i18n translation plugin
+- [`calca`](https://github.com/espetro/calca) — describe a design, get polished HTML/CSS
+- [`wowplay`](https://github.com/espetro/wowplay)
+
+> Building something in these areas? [Open an issue](https://github.com/espetro/espetro/issues), DM me on [X](https://x.com/josocjoq), or just star a repo to start a conversation.
+
+## Got a project? Let's talk
+
+I do **product engineering end-to-end** — from idea to shipped app. AI-first products are my current focus, but I enjoy local-first, DX, and tooling work too.
+
+A bit of context:
+- 🌍 Based in Spain · comfortable with remote and EU-friendly timezones
+- 🤝 Open to **freelance, fractional, and full-time** conversations depending on the shape of the work
+- 🛠 Full-stack: TypeScript, Python, Rust when it fits; LLM APIs, evals, agents; cross-platform (web, desktop, mobile)
+
+→ Start a thread on [X](https://x.com/josocjoq) or send a [LinkedIn](https://www.linkedin.com/in/quinoterrasa/) DM. Portfolio: [illo.fyi/projects](https://illo.fyi/projects).
+
+## Sponsor
+
+If something I've built has saved you time or made your stack nicer to work with, consider [sponsoring me on GitHub](https://github.com/sponsors/espetro).
+
+Funds go directly to:
+- 🔧 Maintenance time for `@sigilco` and other OSS
+- 🧪 Experimenting with AI-first product patterns
+- 📝 Writing more in public
+
+## Past
+
+- 🎙 Ex Community Organizer — [GDG Málaga](https://github.com/GDGMalaga), [Málaga AI](https://github.com/Malaga-AI)
