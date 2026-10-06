@@ -21,11 +21,7 @@
 
 ## Open source
 
-- [`sigilco/agentplugins`](https://github.com/sigilco/agentplugins) — harness-agnostic plugins
-- [`sigilco/intl-ai`](https://github.com/sigilco/intl-ai) — AI-powered i18n translation plugin
-- [`calca`](https://github.com/espetro/calca) — describe a design, get polished HTML/CSS
-
-> Building something in these areas? [Open an issue](https://github.com/espetro/espetro/issues) or DM me on [X](https://x.com/josocjoq).
+→ Projects I maintain and upstream PRs: **[illo.fyi/#upstream](https://illo.fyi/#upstream)**
 
 ## Say hi
 
