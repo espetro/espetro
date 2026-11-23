@@ -24,23 +24,32 @@ lines.push("", "<br>", "");
 lines.push(pic("h-work", `${headers.work.bold} ${headers.work.rest}`, 'width="100%"'));
 lines.push("");
 
-// bento: tall floats left, right column stacks, clear, then alternating rows
-const [tall, ...rest] = work;
+// Vertical bento (see data.ts). Floated cards must be plain <img> pairs with
+// #gh-*-mode-only fragments: GitHub wraps <picture> in <themed-picture>, which
+// contains the float and breaks the column layout. Non-floated cards keep <picture>.
+const floatImgs = (href: string, name: string, alt: string, pct: number) =>
+  `<a href="${href}"><img align="left" src="assets/${name}-light.png#gh-light-mode-only" alt="${alt}" width="${pct}%"><img align="left" src="assets/${name}-dark.png#gh-dark-mode-only" alt="${alt}" width="${pct}%"></a>`;
+
+const [brioso, lilo, calca, stash, cauce, intl, illo, psc] = work;
+// zone A: tall brioso left, lilo + calca stacked in the right column
 lines.push(
-  link(tall.href, `card-${tall.key}`, tall.alt, `width="${tall.widthPct}%"`, 'align="left" ') +
-    link(rest[0].href, `card-${rest[0].key}`, rest[0].alt, `width="${rest[0].widthPct}%"`)
+  floatImgs(brioso.href, `card-${brioso.key}`, brioso.alt, brioso.widthPct) +
+  link(lilo.href, `card-${lilo.key}`, lilo.alt, `width="${lilo.widthPct}%"`) +
+  link(calca.href, `card-${calca.key}`, calca.alt, `width="${calca.widthPct}%"`)
 );
-lines.push(link(rest[1].href, `card-${rest[1].key}`, rest[1].alt, `width="${rest[1].widthPct}%"`));
-lines.push('<br clear="left">');
-// each row's anchors sit on one line — a whitespace node would overflow the 100% row
+lines.push('<br clear="all">');
+// zone B: 1/3 + 2/3 row
 lines.push(
-  link(rest[2].href, `card-${rest[2].key}`, rest[2].alt, `width="${rest[2].widthPct}%"`) +
-  link(rest[3].href, `card-${rest[3].key}`, rest[3].alt, `width="${rest[3].widthPct}%"`)
+  link(stash.href, `card-${stash.key}`, stash.alt, `width="${stash.widthPct}%"`) +
+  link(cauce.href, `card-${cauce.key}`, cauce.alt, `width="${cauce.widthPct}%"`)
 );
+// zone C: intl-ai + illo.fyi stacked left, tall pyscriptc right
 lines.push(
-  link(rest[4].href, `card-${rest[4].key}`, rest[4].alt, `width="${rest[4].widthPct}%"`) +
-  link(rest[5].href, `card-${rest[5].key}`, rest[5].alt, `width="${rest[5].widthPct}%"`)
+  floatImgs(intl.href, `card-${intl.key}`, intl.alt, intl.widthPct) +
+  floatImgs(illo.href, `card-${illo.key}`, illo.alt, illo.widthPct) +
+  link(psc.href, `card-${psc.key}`, psc.alt, `width="${psc.widthPct}%"`)
 );
+lines.push('<br clear="all">');
 lines.push("");
 lines.push(`${moreOn.text} [${moreOn.links[0].label}](${moreOn.links[0].href}), plus [${moreOn.links[1].label}](${moreOn.links[1].href}).`);
 lines.push("", "<br>", "");

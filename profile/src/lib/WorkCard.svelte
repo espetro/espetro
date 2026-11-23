@@ -1,6 +1,6 @@
 <script lang="ts">
   import Icon from "./Icon.svelte";
-  import { ARROW, CATS, SIZES, type WorkCard } from "../data";
+  import { ARROW, CATS, ICON_PATHS, SIZES, type WorkCard } from "../data";
   import IconOss from "virtual:icons/simple-icons/opensourceinitiative";
   import IconDesktop from "virtual:icons/tabler/device-desktop";
   import IconWeb from "virtual:icons/tabler/world";
@@ -26,7 +26,6 @@
   const ls = $derived(Math.round(72 * scale));
   const fsT = $derived(Math.round(33 * scale));
   const fsS = $derived(Math.round(26 * scale));
-  const chipFs = $derived(Math.round(21 * scale));
   const chipH = $derived(Math.round(48 * scale));
   const chipIco = $derived(Math.round(22 * scale));
   const y = $derived(inset + shH);
@@ -52,13 +51,12 @@
   <div class="chips" style="right:{card.arrow ? 104 : 28}px;top:{y + 26}px">
     {#each card.cats as cat}
       {@const CatIcon = CAT_ICONS[cat]}
-      <div class="chip" style="height:{chipH}px;font-size:{chipFs}px">
+      <div class="chip" title={CATS[cat].label} style="width:{chipH}px;height:{chipH}px">
         <span class="catico" style="color:{CATS[cat].color === 'plain' ? 'var(--mut)' : CATS[cat].color}"><CatIcon width={chipIco} height={chipIco} /></span>
-        {CATS[cat].label}
       </div>
     {/each}
     {#if card.tag}
-      <div class="chip tag" style="height:{chipH}px;font-size:{chipFs}px">{card.tag}</div>
+      <div class="chip tag" style="width:{chipH}px;height:{chipH}px"><Icon path={ICON_PATHS[card.tag as keyof typeof ICON_PATHS]} size={chipIco} /></div>
     {/if}
   </div>
   {#if card.arrow}
@@ -108,20 +106,15 @@
     align-items: center;
   }
   .chip {
-    padding: 0 16px 0 12px;
-    border-radius: 999px;
+    border-radius: 50%;
     background: var(--chip);
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-weight: 500;
+    justify-content: center;
     color: var(--mut);
-    white-space: nowrap;
   }
   .chip.tag {
-    padding: 0 16px;
     color: var(--fg);
-    font-weight: 600;
     background: transparent;
     border: 2px solid var(--chip);
   }

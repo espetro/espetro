@@ -25,7 +25,7 @@ export const headers = {
   contact: { bold: "Say hi.", rest: "Tell me what you're building." },
 };
 
-export type CardSize = "tall" | "mid" | "wide" | "third";
+
 
 // Color-coded categories shown as chips on each card.
 export type CatKey = "oss" | "desktop" | "web" | "cloud" | "revenue";
@@ -56,22 +56,28 @@ export interface WorkCard {
 }
 
 export const SIZES: Record<CardSize, [number, number]> = {
-  tall: [1016, 1164],
+  tall: [1200, 940],   // brioso: ~2/3 wide, spans two stacked mids
+  tallr: [1200, 1005], // pyscriptc: ~2/3 wide, spans two stacked thirds
   mid: [740, 520],
-  wide: [1160, 480],
+  wide: [1160, 460],
   third: [576, 480],
 };
 
-// Bento order: tall floats left, right column stacks, then alternating rows.
-// Widths sum to 100% per row; each PNG bakes a fixed transparent gutter.
+export type CardSize = "tall" | "tallr" | "mid" | "wide" | "third";
+
+// Vertical bento: floats build the columns. Zone A = tall left + stacked
+// right pair; zone B = 1/3 + 2/3 row; zone C = stacked left pair + tall right.
+// Floated cards are emitted as plain <img> + #gh-*-mode-only fragments —
+// GitHub wraps <picture> in <themed-picture>, which swallows the float.
 export const work: WorkCard[] = [
-  { key: "brioso", title: "Brioso", sub: "AI audio canvas: prompt, generate, iterate.", href: "https://usebrioso.com", logo: "brioso.png", shot: "brioso_c.png", cats: ["revenue", "web", "cloud"], tag: "solo-built", size: "tall", widthPct: 56, float: true, arrow: true, alt: "Brioso: AI audio canvas, prompt, generate, iterate. Solo-built." },
-  { key: "lilo", title: "Lilo", sub: "WebKit browser for Mac", href: "https://getlilo.app", logo: "lilo.png", shot: "lilo_app.png", cats: ["oss", "desktop"], tag: "core team", size: "mid", widthPct: 44, alt: "Lilo: a WebKit browser for Mac. Core team." },
-  { key: "calca", title: "Calca", sub: "Plain English to HTML/CSS", href: "https://calca.illo.fyi", logo: "calca.png", shot: "calca.png", cats: ["oss", "desktop", "web"], size: "mid", widthPct: 44, alt: "Calca: plain-English design to HTML/CSS. Open source." },
+  { key: "brioso", title: "Brioso", sub: "AI audio canvas: prompt, generate, iterate.", href: "https://usebrioso.com", logo: "brioso.png", shot: "brioso_c.png", cats: ["revenue", "web", "cloud"], tag: "user", size: "tall", widthPct: 65, float: true, arrow: true, alt: "Brioso: AI audio canvas, prompt, generate, iterate. Solo-built." },
+  { key: "lilo", title: "Lilo", sub: "WebKit browser for Mac", href: "https://getlilo.app", logo: "lilo.png", shot: "lilo_app.png", cats: ["oss", "desktop"], tag: "users", size: "mid", widthPct: 35, alt: "Lilo: a WebKit browser for Mac. Core team." },
+  { key: "calca", title: "Calca", sub: "Plain English to HTML/CSS", href: "https://calca.illo.fyi", logo: "calca.png", shot: "calca.png", cats: ["oss", "desktop", "web"], size: "mid", widthPct: 35, alt: "Calca: plain-English design to HTML/CSS. Open source." },
   { key: "stash", title: "Stash", sub: "Tabs into one link", href: "https://stash.illo.fyi", logo: "stash.png", shot: "stash.png", cats: ["oss", "web"], size: "third", widthPct: 33, alt: "Stash: browser tabs into one shareable link. Open source." },
   { key: "cauce", title: "cauce", sub: "Local web-search proxy for AI agents", href: "https://cauce.fyi", logo: "cauce.png", shot: "cauce.png", shotPos: "center 30%", cats: ["oss", "web", "cloud"], size: "wide", widthPct: 67, alt: "cauce: local web-search proxy for AI agents. Self-host." },
-  { key: "pyscriptc", title: "pyscriptc", sub: "Annotated Python to native binaries", href: "https://pyscriptc.pages.dev", logo: "pyscriptc.png", shot: "pyscriptc.png", cats: ["oss", "desktop"], size: "wide", widthPct: 67, alt: "pyscriptc: annotated Python to native binaries, about 1.1k downloads per month." },
-  { key: "intl-ai", title: "intl-ai", sub: "AI i18n at build time", href: "https://intl-ai.illo.fyi", logo: "intl-ai.png", shot: "intl-ai.png", shotPos: "30% top", cats: ["oss", "desktop"], size: "third", widthPct: 33, logoTile: true, alt: "intl-ai: AI i18n translation at build time. Open source." },
+  { key: "intl-ai", title: "intl-ai", sub: "AI i18n at build time", href: "https://intl-ai.illo.fyi", logo: "intl-ai.png", shot: "intl-ai.png", shotPos: "30% top", cats: ["oss", "desktop"], size: "third", widthPct: 33, float: true, logoTile: true, alt: "intl-ai: AI i18n translation at build time. Open source." },
+  { key: "illofyi", title: "illo.fyi", sub: "Work, writing and experiments", href: "https://illo.fyi", logo: "illo.png", shot: "illo.png", cats: ["web"], size: "third", widthPct: 33, float: true, alt: "illo.fyi: work, writing and experiments." },
+  { key: "pyscriptc", title: "pyscriptc", sub: "Annotated Python to native binaries", href: "https://pyscriptc.pages.dev", logo: "pyscriptc.png", shot: "pyscriptc.png", cats: ["oss", "desktop"], size: "tallr", widthPct: 67, alt: "pyscriptc: annotated Python to native binaries, about 1.1k downloads per month." },
 ];
 
 export const metrics = [
