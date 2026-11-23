@@ -69,8 +69,8 @@ export type CardSize = "tall" | "tallr" | "mid" | "wide" | "third";
 // and C = 1/3 + 2/3 rows. The stacked column renders as a composite image
 // (workCols) — see readme.mts for why floats don't survive GitHub's renderer.
 export const work: WorkCard[] = [
-  { key: "brioso", title: "Brioso", sub: "AI audio canvas: prompt, generate, iterate.", href: "https://usebrioso.com", logo: "brioso.png", shot: "brioso_c.png", cats: ["revenue", "web", "cloud"], tag: "solo-built", size: "tall", widthPct: 65, alt: "Brioso: AI audio canvas, prompt, generate, iterate. Solo-built." },
-  { key: "lilo", title: "Lilo", sub: "WebKit browser for Mac", href: "https://getlilo.app", logo: "lilo.png", shot: "lilo_app.png", cats: ["oss", "desktop"], tag: "core team", size: "mid", widthPct: 35, alt: "Lilo: a WebKit browser for Mac. Core team." },
+  { key: "brioso", title: "Brioso", sub: "AI audio canvas: prompt, generate, iterate.", href: "https://usebrioso.com", logo: "brioso.png", shot: "brioso_c.png", cats: ["web", "cloud"], size: "tall", widthPct: 65, alt: "Brioso: AI audio canvas, prompt, generate, iterate. Solo-built." },
+  { key: "lilo", title: "Lilo", sub: "WebKit browser for Mac", href: "https://getlilo.app", logo: "lilo.png", shot: "lilo_app.png", cats: ["oss", "desktop"], size: "mid", widthPct: 35, alt: "Lilo: a WebKit browser for Mac. Core team." },
   { key: "calca", title: "Calca", sub: "Plain English to HTML/CSS", href: "https://calca.illo.fyi", logo: "calca.png", shot: "calca.png", cats: ["oss", "desktop", "web"], size: "mid", widthPct: 35, alt: "Calca: plain-English design to HTML/CSS. Open source." },
   { key: "stash", title: "Stash", sub: "Tabs into one link", href: "https://stash.illo.fyi", logo: "stash.png", shot: "stash.png", cats: ["oss", "web"], size: "third", widthPct: 33, alt: "Stash: browser tabs into one shareable link. Open source." },
   { key: "cauce", title: "cauce", sub: "Local web-search proxy for AI agents", href: "https://cauce.fyi", logo: "cauce.png", shot: "cauce.png", shotPos: "center 30%", cats: ["oss", "web", "cloud"], size: "wide", widthPct: 67, alt: "cauce: local web-search proxy for AI agents. Self-host." },
