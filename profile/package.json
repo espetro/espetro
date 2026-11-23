@@ -1,0 +1,21 @@
+{
+  "name": "profile",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "render": "pnpm build && tsx scripts/render.mts",
+    "readme": "tsx scripts/readme.mts && tsx scripts/preview.mts",
+    "all": "pnpm render && pnpm readme"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.1.0",
+    "marked": "^15.0.0",
+    "playwright-core": "^1.49.0",
+    "svelte": "^5.20.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0"
+  }
+}
