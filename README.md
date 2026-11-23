@@ -2,7 +2,7 @@
 
 I'm Quino (pronounced /ˈkino/), a product engineer who joins founding teams early and ships the whole thing: AI-first products, taste-level frontends and the unglamorous plumbing underneath. High-agency, end to end, from blank repo to production. The AI is the feature, the craft is the moat.
 
-<a href="mailto:hey@illo.fyi"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-start-dark.png"><img  src="assets/btn-start-light.png" alt="Start a project" height="48"></picture></a>&nbsp;<a href="https://illo.fyi"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-site-dark.png"><img  src="assets/btn-site-light.png" alt="my website" height="48"></picture></a>
+<a href="mailto:hey@illo.fyi"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-start-dark.png"><img  src="assets/btn-start-light.png" alt="Start a project" height="48"></picture></a>&nbsp;<a href="https://illo.fyi"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-site-dark.png"><img  src="assets/btn-site-light.png" alt="Work & writing" height="48"></picture></a>
 
 <br>
 

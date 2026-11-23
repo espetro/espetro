@@ -20,7 +20,7 @@
   const [W, H] = $derived(SIZES[card.size]);
   const scale = $derived(card.size === "third" ? 0.82 : card.size === "tall" ? 1.05 : 1);
   const inset = 12;
-  const metaH = $derived(scale >= 1 ? 148 : 128);
+  const metaH = $derived(Math.round(40 + 150 * scale));
   const shH = $derived(H - inset * 2 - metaH);
   const rOut = $derived(Math.round(W * 0.055));
   const ls = $derived(Math.round(72 * scale));
@@ -45,11 +45,11 @@
     class:tile={card.logoTile}
     src="/media/logos/{card.logo}"
     alt=""
-    style="left:28px;top:{y + 26}px;width:{ls}px;height:{ls}px;border-radius:{Math.round(ls * 0.26)}px"
+    style="left:28px;top:{y + 22}px;width:{ls}px;height:{ls}px;border-radius:{Math.round(ls * 0.26)}px;object-fit:contain"
   />
-  <div class="title" style="left:{28 + ls + 24}px;top:{y + 22}px;font-size:{fsT}px">{card.title}</div>
-  <div class="sub" style="left:{28 + ls + 24}px;top:{y + 22 + Math.round(fsT * 1.45)}px;font-size:{fsS}px">{card.sub}</div>
-  <div class="chips" style="right:{card.arrow ? 104 : 28}px;top:{y + 22}px;max-width:{W - (28 + ls + 24) - (card.arrow ? 104 : 28) - 48}px">
+  <div class="title" style="left:{28 + ls + 24}px;top:{y + 18}px;font-size:{fsT}px">{card.title}</div>
+  <div class="sub" style="left:{28 + ls + 24}px;top:{y + 18 + Math.round(fsT * 1.45)}px;font-size:{fsS}px">{card.sub}</div>
+  <div class="chips" style="left:{28 + ls + 24}px;top:{y + 18 + Math.round(fsT * 1.45 + fsS * 1.9)}px;max-width:{W - (28 + ls + 24) - 28 - (card.arrow ? 76 : 0)}px">
     {#each card.cats as cat}
       {@const CatIcon = CAT_ICONS[cat]}
       <div class="chip" style="font-size:{chipFs}px;min-height:{chipH}px">
@@ -107,7 +107,7 @@
     flex-wrap: wrap;
     gap: 10px;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
   .chip {
     padding: 8px 16px 8px 12px;

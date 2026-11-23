@@ -15,7 +15,7 @@ export const hero = {
 
 export const buttons = [
   { key: "start", label: "Start a project", href: `mailto:${EMAIL}`, primary: true, w: 356 },
-  { key: "site", label: "my website", href: SITE, primary: false, w: 340 },
+  { key: "site", label: "Work & writing", href: SITE, primary: false, w: 400 },
 ];
 
 export const headers = {
