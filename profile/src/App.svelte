@@ -8,9 +8,11 @@
   import MetricsRow from "./lib/MetricsRow.svelte";
   import StackPills from "./lib/StackPills.svelte";
   import SocialPill from "./lib/SocialPill.svelte";
-  import { buttons, headers, work, socials, SIZES } from "./data";
+  import WorkCol from "./lib/WorkCol.svelte";
+  import { buttons, headers, work, workCols, socials, SIZES } from "./data";
 
   const theme = new URLSearchParams(location.search).get("theme") ?? "light";
+  const colKeys = new Set(workCols.flatMap((c) => c.cards.map((x) => x.key)));
 </script>
 
 <div class="root" data-theme={theme}>
@@ -24,9 +26,15 @@
     <Asset name="h-{key}" w={1760} h={84}><SectionHeader bold={h.bold} rest={h.rest} /></Asset>
   {/each}
 
-  {#each work as c}
+  {#each work.filter((c) => !colKeys.has(c.key)) as c}
     {@const [w, h] = SIZES[c.size]}
     <Asset name="card-{c.key}" {w} {h} px={16} py={10}><WorkCard card={c} /></Asset>
+  {/each}
+
+  {#each workCols as col}
+    {@const cw = Math.max(...col.cards.map((c) => SIZES[c.size][0]))}
+    {@const ch = col.cards.reduce((s, c) => s + SIZES[c.size][1], 24 * (col.cards.length - 1))}
+    <Asset name="col-{col.name}" w={cw} h={ch} px={16} py={10}><WorkCol cards={col.cards} /></Asset>
   {/each}
 
   <Asset name="metrics-a" w={1760} h={470}><MetricsRow /></Asset>

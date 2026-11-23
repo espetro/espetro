@@ -2,7 +2,7 @@
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
-import { hero, buttons, headers, work, socials, moreOn } from "../src/data.ts";
+import { hero, buttons, headers, work, workCols, socials, moreOn } from "../src/data.ts";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -24,32 +24,28 @@ lines.push("", "<br>", "");
 lines.push(pic("h-work", `${headers.work.bold} ${headers.work.rest}`, 'width="100%"'));
 lines.push("");
 
-// Vertical bento (see data.ts). Floated cards must be plain <img> pairs with
-// #gh-*-mode-only fragments: GitHub wraps <picture> in <themed-picture>, which
-// contains the float and breaks the column layout. Non-floated cards keep <picture>.
-const floatImgs = (href: string, name: string, alt: string, pct: number) =>
-  `<a href="${href}"><img align="left" src="assets/${name}-light.png#gh-light-mode-only" alt="${alt}" width="${pct}%"><img align="left" src="assets/${name}-dark.png#gh-dark-mode-only" alt="${alt}" width="${pct}%"></a>`;
-
-const [brioso, lilo, calca, stash, cauce, intl, illo, psc] = work;
-// zone A: tall brioso left, lilo + calca stacked in the right column
+// Vertical bento. GitHub can't stack <picture>s beside a tall card — floats
+// don't escape the <themed-picture> wrapper and #gh-*-mode-only hiding was
+// removed from GitHub's CSS. So stacked columns are composite images
+// (col-*.png) that pack inline at percentage widths; every card still gets a
+// link below the grid. Anchors on each line are concatenated: a whitespace
+// node between them would overflow the 100% row.
+const [brioso, , , stash, cauce, , , psc] = work;
+const [colA, colC] = workCols;
 lines.push(
-  floatImgs(brioso.href, `card-${brioso.key}`, brioso.alt, brioso.widthPct) +
-  link(lilo.href, `card-${lilo.key}`, lilo.alt, `width="${lilo.widthPct}%"`) +
-  link(calca.href, `card-${calca.key}`, calca.alt, `width="${calca.widthPct}%"`)
+  link(brioso.href, `card-${brioso.key}`, brioso.alt, `width="${brioso.widthPct}%"`) +
+    link(colA.href, `col-${colA.name}`, colA.alt, `width="${colA.pct}%"`)
 );
-lines.push('<br clear="all">');
-// zone B: 1/3 + 2/3 row
 lines.push(
   link(stash.href, `card-${stash.key}`, stash.alt, `width="${stash.widthPct}%"`) +
-  link(cauce.href, `card-${cauce.key}`, cauce.alt, `width="${cauce.widthPct}%"`)
+    link(cauce.href, `card-${cauce.key}`, cauce.alt, `width="${cauce.widthPct}%"`)
 );
-// zone C: intl-ai + illo.fyi stacked left, tall pyscriptc right
 lines.push(
-  floatImgs(intl.href, `card-${intl.key}`, intl.alt, intl.widthPct) +
-  floatImgs(illo.href, `card-${illo.key}`, illo.alt, illo.widthPct) +
-  link(psc.href, `card-${psc.key}`, psc.alt, `width="${psc.widthPct}%"`)
+  link(colC.href, `col-${colC.name}`, colC.alt, `width="${colC.pct}%"`) +
+    link(psc.href, `card-${psc.key}`, psc.alt, `width="${psc.widthPct}%"`)
 );
-lines.push('<br clear="all">');
+// every card stays reachable even inside composite columns
+lines.push(`${work.map((c) => `[${c.title}](${c.href})`).join(" · ")}`);
 lines.push("");
 lines.push(`${moreOn.text} [${moreOn.links[0].label}](${moreOn.links[0].href}), plus [${moreOn.links[1].label}](${moreOn.links[1].href}).`);
 lines.push("", "<br>", "");

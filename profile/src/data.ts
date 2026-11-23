@@ -49,15 +49,15 @@ export interface WorkCard {
   tag?: string; // extra neutral chip (e.g. role: core team, solo-built)
   size: CardSize;
   widthPct: number; // rendered width in README
-  float?: boolean; // tall left-column card
+
   arrow?: boolean;
   logoTile?: boolean;
   alt: string;
 }
 
 export const SIZES: Record<CardSize, [number, number]> = {
-  tall: [1200, 940],   // brioso: ~2/3 wide, spans two stacked mids
-  tallr: [1200, 1005], // pyscriptc: ~2/3 wide, spans two stacked thirds
+  tall: [1200, 912],   // brioso: 65% wide, matches stacked mid pair height
+  tallr: [1200, 980],  // pyscriptc: 67% wide, matches stacked third pair height
   mid: [740, 520],
   wide: [1160, 460],
   third: [576, 480],
@@ -65,19 +65,29 @@ export const SIZES: Record<CardSize, [number, number]> = {
 
 export type CardSize = "tall" | "tallr" | "mid" | "wide" | "third";
 
-// Vertical bento: floats build the columns. Zone A = tall left + stacked
-// right pair; zone B = 1/3 + 2/3 row; zone C = stacked left pair + tall right.
-// Floated cards are emitted as plain <img> + #gh-*-mode-only fragments —
-// GitHub wraps <picture> in <themed-picture>, which swallows the float.
+// Vertical bento: zone A = tall Brioso + stacked Lilo/Calca column; zone B =
+// 1/3 + 2/3 row; zone C = stacked intl-ai/illo.fyi column + tall pyscriptc.
+// Stacked columns render as composite images (workCols) — see readme.mts for
+// why per-card floats don't survive GitHub's renderer.
 export const work: WorkCard[] = [
-  { key: "brioso", title: "Brioso", sub: "AI audio canvas: prompt, generate, iterate.", href: "https://usebrioso.com", logo: "brioso.png", shot: "brioso_c.png", cats: ["revenue", "web", "cloud"], tag: "user", size: "tall", widthPct: 65, float: true, arrow: true, alt: "Brioso: AI audio canvas, prompt, generate, iterate. Solo-built." },
+  { key: "brioso", title: "Brioso", sub: "AI audio canvas: prompt, generate, iterate.", href: "https://usebrioso.com", logo: "brioso.png", shot: "brioso_c.png", cats: ["revenue", "web", "cloud"], tag: "user", size: "tall", widthPct: 65, arrow: true, alt: "Brioso: AI audio canvas, prompt, generate, iterate. Solo-built." },
   { key: "lilo", title: "Lilo", sub: "WebKit browser for Mac", href: "https://getlilo.app", logo: "lilo.png", shot: "lilo_app.png", cats: ["oss", "desktop"], tag: "users", size: "mid", widthPct: 35, alt: "Lilo: a WebKit browser for Mac. Core team." },
   { key: "calca", title: "Calca", sub: "Plain English to HTML/CSS", href: "https://calca.illo.fyi", logo: "calca.png", shot: "calca.png", cats: ["oss", "desktop", "web"], size: "mid", widthPct: 35, alt: "Calca: plain-English design to HTML/CSS. Open source." },
   { key: "stash", title: "Stash", sub: "Tabs into one link", href: "https://stash.illo.fyi", logo: "stash.png", shot: "stash.png", cats: ["oss", "web"], size: "third", widthPct: 33, alt: "Stash: browser tabs into one shareable link. Open source." },
   { key: "cauce", title: "cauce", sub: "Local web-search proxy for AI agents", href: "https://cauce.fyi", logo: "cauce.png", shot: "cauce.png", shotPos: "center 30%", cats: ["oss", "web", "cloud"], size: "wide", widthPct: 67, alt: "cauce: local web-search proxy for AI agents. Self-host." },
-  { key: "intl-ai", title: "intl-ai", sub: "AI i18n at build time", href: "https://intl-ai.illo.fyi", logo: "intl-ai.png", shot: "intl-ai.png", shotPos: "30% top", cats: ["oss", "desktop"], size: "third", widthPct: 33, float: true, logoTile: true, alt: "intl-ai: AI i18n translation at build time. Open source." },
-  { key: "illofyi", title: "illo.fyi", sub: "Work, writing and experiments", href: "https://illo.fyi", logo: "illo.png", shot: "illo.png", cats: ["web"], size: "third", widthPct: 33, float: true, alt: "illo.fyi: work, writing and experiments." },
+  { key: "intl-ai", title: "intl-ai", sub: "AI i18n at build time", href: "https://intl-ai.illo.fyi", logo: "intl-ai.png", shot: "intl-ai.png", shotPos: "30% top", cats: ["oss", "desktop"], size: "third", widthPct: 33, logoTile: true, alt: "intl-ai: AI i18n translation at build time. Open source." },
+  { key: "illofyi", title: "illo.fyi", sub: "Work, writing and experiments", href: "https://illo.fyi", logo: "illo.png", shot: "illo.png", cats: ["web"], size: "third", widthPct: 33, alt: "illo.fyi: work, writing and experiments." },
   { key: "pyscriptc", title: "pyscriptc", sub: "Annotated Python to native binaries", href: "https://pyscriptc.pages.dev", logo: "pyscriptc.png", shot: "pyscriptc.png", cats: ["oss", "desktop"], size: "tallr", widthPct: 67, alt: "pyscriptc: annotated Python to native binaries, about 1.1k downloads per month." },
+];
+
+const W = Object.fromEntries(work.map((c) => [c.key, c])) as Record<string, WorkCard>;
+
+// Stacked-column composites: GitHub can't stack pictures vertically beside a
+// tall card (floats don't work inside <themed-picture>), so each column is one
+// rendered image. Display % of the README content width.
+export const workCols = [
+  { name: "lilo-calca", cards: [W.lilo, W.calca], pct: 35, href: W.lilo.href, alt: "Lilo and Calca" },
+  { name: "intl-illofyi", cards: [W["intl-ai"], W.illofyi], pct: 33, href: W["intl-ai"].href, alt: "intl-ai and illo.fyi" },
 ];
 
 export const metrics = [
