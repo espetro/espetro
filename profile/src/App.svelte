@@ -26,7 +26,7 @@
 
   {#each work as c}
     {@const [w, h] = SIZES[c.size]}
-    <Asset name="card-{c.key}" {w} {h}><WorkCard card={c} /></Asset>
+    <Asset name="card-{c.key}" {w} {h} px={16} py={10}><WorkCard card={c} /></Asset>
   {/each}
 
   <Asset name="metrics-a" w={1760} h={470}><MetricsRow /></Asset>

@@ -32,10 +32,13 @@ lines.push(
 );
 lines.push(link(rest[1].href, `card-${rest[1].key}`, rest[1].alt, `width="${rest[1].widthPct}%"`));
 lines.push('<br clear="left">');
+// each row's anchors sit on one line — a whitespace node would overflow the 100% row
 lines.push(
-  link(rest[2].href, `card-${rest[2].key}`, rest[2].alt, `width="${rest[2].widthPct}%"`) + "\n" +
-  link(rest[3].href, `card-${rest[3].key}`, rest[3].alt, `width="${rest[3].widthPct}%"`) + "\n" +
-  link(rest[4].href, `card-${rest[4].key}`, rest[4].alt, `width="${rest[4].widthPct}%"`) + "\n" +
+  link(rest[2].href, `card-${rest[2].key}`, rest[2].alt, `width="${rest[2].widthPct}%"`) +
+  link(rest[3].href, `card-${rest[3].key}`, rest[3].alt, `width="${rest[3].widthPct}%"`)
+);
+lines.push(
+  link(rest[4].href, `card-${rest[4].key}`, rest[4].alt, `width="${rest[4].widthPct}%"`) +
   link(rest[5].href, `card-${rest[5].key}`, rest[5].alt, `width="${rest[5].widthPct}%"`)
 );
 lines.push("");

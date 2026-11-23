@@ -1,8 +1,21 @@
 <script lang="ts">
   import Icon from "./Icon.svelte";
-  import { ICON_PATHS, ARROW, SIZES, type WorkCard } from "../data";
+  import { ARROW, CATS, SIZES, type WorkCard } from "../data";
+  import IconOss from "virtual:icons/simple-icons/opensourceinitiative";
+  import IconDesktop from "virtual:icons/tabler/device-desktop";
+  import IconWeb from "virtual:icons/tabler/world";
+  import IconCloud from "virtual:icons/tabler/cloud";
+  import IconRevenue from "virtual:icons/tabler/chart-line";
 
   let { card }: { card: WorkCard } = $props();
+
+  const CAT_ICONS = {
+    oss: IconOss,
+    desktop: IconDesktop,
+    web: IconWeb,
+    cloud: IconCloud,
+    revenue: IconRevenue,
+  };
 
   const [W, H] = $derived(SIZES[card.size]);
   const scale = $derived(card.size === "third" ? 0.82 : card.size === "tall" ? 1.05 : 1);
@@ -13,6 +26,9 @@
   const ls = $derived(Math.round(72 * scale));
   const fsT = $derived(Math.round(33 * scale));
   const fsS = $derived(Math.round(26 * scale));
+  const chipFs = $derived(Math.round(21 * scale));
+  const chipH = $derived(Math.round(48 * scale));
+  const chipIco = $derived(Math.round(22 * scale));
   const y = $derived(inset + shH);
 </script>
 
@@ -33,8 +49,17 @@
   />
   <div class="title" style="left:{28 + ls + 24}px;top:{y + 22}px;font-size:{fsT}px">{card.title}</div>
   <div class="sub" style="left:{28 + ls + 24}px;top:{y + 22 + Math.round(fsT * 1.45)}px;font-size:{fsS}px">{card.sub}</div>
-  <div class="chip" style="right:{card.arrow ? 110 : 28}px;top:{y + 28}px">
-    <Icon path={ICON_PATHS[card.icon]} size={24} />{card.chip}
+  <div class="chips" style="right:{card.arrow ? 104 : 28}px;top:{y + 26}px">
+    {#each card.cats as cat}
+      {@const CatIcon = CAT_ICONS[cat]}
+      <div class="chip" style="height:{chipH}px;font-size:{chipFs}px">
+        <span class="catico" style="color:{CATS[cat].color === 'plain' ? 'var(--mut)' : CATS[cat].color}"><CatIcon width={chipIco} height={chipIco} /></span>
+        {CATS[cat].label}
+      </div>
+    {/each}
+    {#if card.tag}
+      <div class="chip tag" style="height:{chipH}px;font-size:{chipFs}px">{card.tag}</div>
+    {/if}
   </div>
   {#if card.arrow}
     <div class="arrow" style="right:28px;top:{y + 26}px"><Icon path={ARROW} size={26} stroke="var(--fg)" /></div>
@@ -76,19 +101,32 @@
     letter-spacing: -0.2px;
     white-space: nowrap;
   }
-  .chip {
+  .chips {
     position: absolute;
-    height: 48px;
-    padding: 0 18px 0 12px;
-    border-radius: 24px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .chip {
+    padding: 0 16px 0 12px;
+    border-radius: 999px;
     background: var(--chip);
     display: flex;
     align-items: center;
-    gap: 9px;
-    font-size: 22px;
+    gap: 8px;
     font-weight: 500;
     color: var(--mut);
     white-space: nowrap;
+  }
+  .chip.tag {
+    padding: 0 16px;
+    color: var(--fg);
+    font-weight: 600;
+    background: transparent;
+    border: 2px solid var(--chip);
+  }
+  .catico {
+    display: inline-flex;
   }
   .arrow {
     position: absolute;
