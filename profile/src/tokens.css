@@ -1,0 +1,49 @@
+@font-face {
+  font-family: Inter;
+  src: url("/media/fonts/inter.woff2");
+  font-weight: 100 900;
+}
+
+:root,
+[data-theme="light"] {
+  --fg: #111111;
+  --mut: #66665f;
+  --card: #efefec;
+  --pill: #efefec;
+  --panel: #ffffff;
+  --btn1-bg: #111111;
+  --btn1-fg: #ffffff;
+  --btn2-bg: #efefec;
+  --btn2-fg: #111111;
+  --bar0: #c9c9c2;
+  --grid: #e3e3df;
+  --accent: #1a9d4b;
+  --chip: #e2e2dd;
+}
+
+[data-theme="dark"] {
+  --fg: #f3f3f1;
+  --mut: #9a9a92;
+  --card: #161617;
+  --pill: #1f1f21;
+  --panel: #0d0d0e;
+  --btn1-bg: #f3f3f1;
+  --btn1-fg: #111111;
+  --btn2-bg: #1f1f21;
+  --btn2-fg: #f3f3f1;
+  --bar0: #4a4a47;
+  --grid: #262628;
+  --accent: #3ddc84;
+  --chip: #26262a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
