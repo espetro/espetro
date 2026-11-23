@@ -2,7 +2,7 @@
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
-import { hero, buttons, headers, work, workCols, socials, moreOn } from "../src/data.ts";
+import { hero, buttons, headers, work, workCols, socials } from "../src/data.ts";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -27,11 +27,10 @@ lines.push("");
 // Vertical bento. GitHub can't stack <picture>s beside a tall card — floats
 // don't escape the <themed-picture> wrapper and #gh-*-mode-only hiding was
 // removed from GitHub's CSS. So stacked columns are composite images
-// (col-*.png) that pack inline at percentage widths; every card still gets a
-// link below the grid. Anchors on each line are concatenated: a whitespace
-// node between them would overflow the 100% row.
-const [brioso, , , stash, cauce, , , psc] = work;
-const [colA, colC] = workCols;
+// (col-*.png) that pack inline at percentage widths. Anchors on each line
+// are concatenated: a whitespace node would overflow the 100% row.
+const [brioso, , , stash, cauce, intl, psc] = work;
+const [colA] = workCols;
 lines.push(
   link(brioso.href, `card-${brioso.key}`, brioso.alt, `width="${brioso.widthPct}%"`) +
     link(colA.href, `col-${colA.name}`, colA.alt, `width="${colA.pct}%"`)
@@ -41,13 +40,9 @@ lines.push(
     link(cauce.href, `card-${cauce.key}`, cauce.alt, `width="${cauce.widthPct}%"`)
 );
 lines.push(
-  link(colC.href, `col-${colC.name}`, colC.alt, `width="${colC.pct}%"`) +
+  link(intl.href, `card-${intl.key}`, intl.alt, `width="${intl.widthPct}%"`) +
     link(psc.href, `card-${psc.key}`, psc.alt, `width="${psc.widthPct}%"`)
 );
-// every card stays reachable even inside composite columns
-lines.push(`${work.map((c) => `[${c.title}](${c.href})`).join(" · ")}`);
-lines.push("");
-lines.push(`${moreOn.text} [${moreOn.links[0].label}](${moreOn.links[0].href}), plus [${moreOn.links[1].label}](${moreOn.links[1].href}).`);
 lines.push("", "<br>", "");
 
 lines.push(pic("h-impact", `${headers.impact.bold} ${headers.impact.rest}`, 'width="100%"'));

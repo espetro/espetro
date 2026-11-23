@@ -1,6 +1,6 @@
 <script lang="ts">
   import Icon from "./Icon.svelte";
-  import { ARROW, CATS, ICON_PATHS, SIZES, type WorkCard } from "../data";
+  import { ARROW, CATS, SIZES, type WorkCard } from "../data";
   import IconOss from "virtual:icons/simple-icons/opensourceinitiative";
   import IconDesktop from "virtual:icons/tabler/device-desktop";
   import IconWeb from "virtual:icons/tabler/world";
@@ -26,6 +26,7 @@
   const ls = $derived(Math.round(72 * scale));
   const fsT = $derived(Math.round(33 * scale));
   const fsS = $derived(Math.round(26 * scale));
+  const chipFs = $derived(Math.round(21 * scale));
   const chipH = $derived(Math.round(48 * scale));
   const chipIco = $derived(Math.round(22 * scale));
   const y = $derived(inset + shH);
@@ -48,15 +49,16 @@
   />
   <div class="title" style="left:{28 + ls + 24}px;top:{y + 22}px;font-size:{fsT}px">{card.title}</div>
   <div class="sub" style="left:{28 + ls + 24}px;top:{y + 22 + Math.round(fsT * 1.45)}px;font-size:{fsS}px">{card.sub}</div>
-  <div class="chips" style="right:{card.arrow ? 104 : 28}px;top:{y + 26}px">
+  <div class="chips" style="right:{card.arrow ? 104 : 28}px;top:{y + 22}px;max-width:{W - (28 + ls + 24) - (card.arrow ? 104 : 28) - 48}px">
     {#each card.cats as cat}
       {@const CatIcon = CAT_ICONS[cat]}
-      <div class="chip" title={CATS[cat].label} style="width:{chipH}px;height:{chipH}px">
+      <div class="chip" style="font-size:{chipFs}px;min-height:{chipH}px">
         <span class="catico" style="color:{CATS[cat].color === 'plain' ? 'var(--mut)' : CATS[cat].color}"><CatIcon width={chipIco} height={chipIco} /></span>
+        {CATS[cat].label}
       </div>
     {/each}
     {#if card.tag}
-      <div class="chip tag" style="width:{chipH}px;height:{chipH}px"><Icon path={ICON_PATHS[card.tag as keyof typeof ICON_PATHS]} size={chipIco} /></div>
+      <div class="chip tag" style="font-size:{chipFs}px;min-height:{chipH}px">{card.tag}</div>
     {/if}
   </div>
   {#if card.arrow}
@@ -102,19 +104,26 @@
   .chips {
     position: absolute;
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     align-items: center;
+    justify-content: flex-end;
   }
   .chip {
-    border-radius: 50%;
+    padding: 8px 16px 8px 12px;
+    border-radius: 999px;
     background: var(--chip);
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
     color: var(--mut);
+    line-height: 1.15;
   }
   .chip.tag {
+    padding: 8px 16px;
     color: var(--fg);
+    font-weight: 600;
     background: transparent;
     border: 2px solid var(--chip);
   }

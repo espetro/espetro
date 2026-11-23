@@ -2,7 +2,7 @@
 
 I'm Quino (pronounced /ˈkino/), a product engineer who joins founding teams early and ships the whole thing: AI-first products, taste-level frontends and the unglamorous plumbing underneath. High-agency, end to end, from blank repo to production. The AI is the feature, the craft is the moat.
 
-<a href="mailto:hey@illo.fyi"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-start-dark.png"><img  src="assets/btn-start-light.png" alt="Start a project" height="48"></picture></a>&nbsp;<a href="https://illo.fyi"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-site-dark.png"><img  src="assets/btn-site-light.png" alt="illo.fyi" height="48"></picture></a>
+<a href="mailto:hey@illo.fyi"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-start-dark.png"><img  src="assets/btn-start-light.png" alt="Start a project" height="48"></picture></a>&nbsp;<a href="https://illo.fyi"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-site-dark.png"><img  src="assets/btn-site-light.png" alt="my website" height="48"></picture></a>
 
 <br>
 
@@ -10,10 +10,7 @@ I'm Quino (pronounced /ˈkino/), a product engineer who joins founding teams ear
 
 <a href="https://usebrioso.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-brioso-dark.png"><img  src="assets/card-brioso-light.png" alt="Brioso: AI audio canvas, prompt, generate, iterate. Solo-built." width="65%"></picture></a><a href="https://getlilo.app"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/col-lilo-calca-dark.png"><img  src="assets/col-lilo-calca-light.png" alt="Lilo and Calca" width="35%"></picture></a>
 <a href="https://stash.illo.fyi"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-stash-dark.png"><img  src="assets/card-stash-light.png" alt="Stash: browser tabs into one shareable link. Open source." width="33%"></picture></a><a href="https://cauce.fyi"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-cauce-dark.png"><img  src="assets/card-cauce-light.png" alt="cauce: local web-search proxy for AI agents. Self-host." width="67%"></picture></a>
-<a href="https://intl-ai.illo.fyi"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/col-intl-illofyi-dark.png"><img  src="assets/col-intl-illofyi-light.png" alt="intl-ai and illo.fyi" width="33%"></picture></a><a href="https://pyscriptc.pages.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-pyscriptc-dark.png"><img  src="assets/card-pyscriptc-light.png" alt="pyscriptc: annotated Python to native binaries, about 1.1k downloads per month." width="67%"></picture></a>
-[Brioso](https://usebrioso.com) · [Lilo](https://getlilo.app) · [Calca](https://calca.illo.fyi) · [Stash](https://stash.illo.fyi) · [cauce](https://cauce.fyi) · [intl-ai](https://intl-ai.illo.fyi) · [illo.fyi](https://illo.fyi) · [pyscriptc](https://pyscriptc.pages.dev)
-
-More on [illo.fyi](https://illo.fyi), plus [agentplugins](https://github.com/sigilco/agentplugins).
+<a href="https://intl-ai.illo.fyi"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-intl-ai-dark.png"><img  src="assets/card-intl-ai-light.png" alt="intl-ai: AI i18n translation at build time. Open source." width="33%"></picture></a><a href="https://pyscriptc.pages.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-pyscriptc-dark.png"><img  src="assets/card-pyscriptc-light.png" alt="pyscriptc: annotated Python to native binaries, about 1.1k downloads per month." width="67%"></picture></a>
 
 <br>
 
